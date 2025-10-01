@@ -165,29 +165,22 @@
     <!-- Script -->
     <script>
       // === CẤU HÌNH ===
-      const dateText = "Tháng mười";
-      const letterTitle = "To You!";
-      const letterContent = `Happy Birthdayyy🥳🎂. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.🥰. 
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.🍀.<br> 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.🌟🐬<br><br><br>
-Mouse🐁.`;
+      const dateText = "Tháng 10";
+      const letterTitle = "To You🐬!";
+      const letterContent = `Happy Birthdayyy🥳🎂.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.c🥰.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.🤗. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.💫.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod..🌟🐬`;
 
       // === HÀM DÙNG CHUNG ===
       function typeWriter(element, text, speed = 50, callback = null) {
-        element.innerHTML = "";
+        element.textContent = "";
         let index = 0;
-
         (function typing() {
           if (index < text.length) {
-            if (text[index] === "<") {
-              // Nếu gặp thẻ HTML (vd: <br>)
-              let endIndex = text.indexOf(">", index);
-              element.innerHTML += text.slice(index, endIndex + 1);
-              index = endIndex + 1;
-            } else {
-              element.innerHTML += text[index];
-              index++;
-            }
+            element.textContent += text.charAt(index);
+            index++;
             setTimeout(typing, speed);
           } else if (callback) callback();
         })();
@@ -222,8 +215,8 @@ Mouse🐁.`;
 
       mailBox.onclick = () => {
         boxMail.classList.add("active");
-        typeWriter(typingTitle, letterTitle, 150, () => {
-          setTimeout(() => typeWriter(typingText, letterContent, 60), 300);
+        typeWriter(typingTitle, letterTitle, 120, () => {
+          setTimeout(() => typeWriter(typingText, letterContent, 40), 300);
         });
       };
 
